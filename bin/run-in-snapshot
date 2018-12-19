@@ -5,6 +5,7 @@ const fs = require('fs-extra');
 const {spawnSync} = require('child_process');
 const electron = require('electron')
 const electronLink = require('electron-link');
+const chalk = require('chalk');
 const yargs = require('yargs')
   .option('link', {
     alias: 'l',
@@ -30,7 +31,7 @@ async function main() {
     const cachePath = path.join(path.dirname(scriptPath), 'link-cache');
     await fs.mkdirs(cachePath);
 
-    console.log(`--- Linking source from ${scriptPath} to ${linkedPath}. ---`);
+    console.log(chalk.bold('Linking source from %s to %s.'), chalk.blue(scriptPath), chalk.blue(linkedPath));
 
     const linkResult = await electronLink({
       baseDirPath: path.dirname(scriptPath),
@@ -40,15 +41,15 @@ async function main() {
     });
     await fs.writeFile(linkedPath, linkResult.snapshotScript, {encoding: 'utf8'});
 
-    console.log('--- Linking complete. ---');
+    console.log(chalk.green('Linking complete.\n'));
     srcPath = linkedPath;
   }
 
-  console.log(`--- Creating snapshot from ${srcPath}. ---`);
+  console.log(chalk.bold('Creating snapshot from %s.'), chalk.blue(srcPath));
   await createSnapshot(srcPath);
-  console.log('--- Snapshot created. ---');
+  console.log(chalk.bold.green('Snapshot created.\n'));
 
-  console.log('--- Loading and running snapshot in Electron. ---');
+  console.log(chalk.bold('Loading and running snapshot in Electron.\n---\n'));
   spawnSync(electron, [path.join(__dirname, '../use.js'), `./${path.basename(scriptPath)}`], {encoding: 'utf8', stdio: 'inherit'});
 }
 
