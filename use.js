@@ -1,9 +1,16 @@
+if (typeof snapshotResult !== 'undefined') {
+	snapshotResult.setGlobals(global, process, global, {}, console, require);
+	global.main = snapshotResult.customRequire(process.argv[2]).main;
+}
+
 const util = require('util');
 
 if (typeof main !== 'undefined') {
 	main().then(
     result => {
-      console.log(util.inspect(result));
+			if (result !== undefined && result !== null) {
+      	console.log(util.inspect(result));
+			}
       process.exit(0);
     },
     err => {
