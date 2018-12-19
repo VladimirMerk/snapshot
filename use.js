@@ -13,5 +13,6 @@ if (typeof main !== 'undefined') {
   );
 } else {
   console.error('No snapshot loaded.');
+	console.error('Your snapshot script must define a top-level function called "main".');
   process.exit(1);
 }
