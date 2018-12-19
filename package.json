@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/smashwilson/snapshot#readme",
   "dependencies": {
+    "chalk": "2.4.1",
     "electron": "2.0.16",
     "electron-link": "0.2.2",
     "electron-mksnapshot": "2.0.0",
