@@ -1,0 +1,29 @@
+{
+  "name": "@smashwilson/snapshot",
+  "version": "1.0.0",
+  "description": "Fun and games with Electron and v8 snapshots",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "start": "electron use.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smashwilson/snapshot.git"
+  },
+  "keywords": [
+    "electron",
+    "v8",
+    "snapshots"
+  ],
+  "author": "Ash Wilson <smashwilson@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smashwilson/snapshot/issues"
+  },
+  "homepage": "https://github.com/smashwilson/snapshot#readme",
+  "dependencies": {
+    "electron": "2.0.16",
+    "electron-mksnapshot": "2.0.0"
+  }
+}
