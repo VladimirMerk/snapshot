@@ -16,4 +16,10 @@ async function main() {
   spawnSync(electron, [path.join(__dirname, '../use.js')], {encoding: 'utf8', stdio: 'inherit'});
 }
 
-main();
+main().then(
+  () => process.exit(0),
+  err => {
+    console.error(err);
+    process.exit(1);
+  }
+)
