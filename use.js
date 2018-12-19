@@ -6,7 +6,7 @@ if (typeof snapshotResult !== 'undefined') {
 const util = require('util');
 
 if (typeof main !== 'undefined') {
-	main().then(
+	Promise.resolve(main()).then(
     result => {
 			if (result !== undefined && result !== null) {
       	console.log(util.inspect(result));
