@@ -34,11 +34,4 @@ function createSnapshot(srcPath) {
   });
 }
 
-async function main() {
-  const srcPath = process.argv[2] || path.join(__dirname, 'src/snapme.js');
-  console.log(`Creating snapshot from ${srcPath}.`);
-  await createSnapshot(srcPath);
-  console.log('Complete.');
-}
-
-main();
+module.exports = {createSnapshot};
