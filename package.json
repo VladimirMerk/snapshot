@@ -7,7 +7,6 @@
     "run-in-snapshot": "./bin/run-in-snapshot"
   },
   "scripts": {
-    "build": "node build.js",
     "start": "electron use.js"
   },
   "repository": {
