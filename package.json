@@ -1,8 +1,11 @@
 {
-  "name": "@smashwilson/snapshot",
+  "name": "@smashwilson/run-in-snapshot",
   "version": "1.0.0",
   "description": "Fun and games with Electron and v8 snapshots",
-  "main": "index.js",
+  "main": "build.js",
+  "bin": {
+    "run-in-snapshot": "./bin/run-in-snapshot"
+  },
   "scripts": {
     "build": "node build.js",
     "start": "electron use.js"
